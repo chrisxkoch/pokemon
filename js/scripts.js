@@ -1,4 +1,4 @@
-var information = [
+var repository = [
   {
     name: 'Bulbasaur', 
     height: 0.7, 
@@ -16,12 +16,7 @@ var information = [
   }
 ];
 
-for (var i = 0; i < information.length; i++) {
-  if (information[i].height < 1) {
-  document.write("<button>" + information[i].name + "</button>" + ' ' + information[i].height + "<br >");
-} else {
-  document.write("<button>" + information[i].name + "</button>" + ' ' + information[i].height + ' ' + 'Wow, that is big!' + "<br >");
-}
-}
-
- 
+Object.keys(repository).forEach(function(information)
+{
+  document.write(repository.[information] + '<br>');
+});
