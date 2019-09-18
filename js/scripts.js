@@ -16,7 +16,6 @@ var repository = [
   }
 ];
 
-Object.keys(repository).forEach(function(information)
-{
-  document.write(repository.[information] + '<br>');
+Object.keys(repository).forEach(function(information) {
+  document.write(information + ': ' + repository[information] + '<br>');
 });
