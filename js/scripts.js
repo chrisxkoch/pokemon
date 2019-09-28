@@ -1,4 +1,4 @@
-var repository = [
+var pokemons = [
   {
     name: 'Bulbasaur', 
     height: 0.7, 
@@ -16,6 +16,8 @@ var repository = [
   }
 ];
 
-Object.keys(repository).forEach(function(information) {
-  document.write(information + ': ' + repository[information] + '<br>');
+pokemons.forEach(function(pokemon){
+document.write(pokemon.name + " ")
+document.write(pokemon.height + " ")
+document.write(pokemon.types + " " + "<br>")
 });
