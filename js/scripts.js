@@ -1,4 +1,5 @@
-var pokemons = [
+var pokemonRepository = (function () {
+  var repository = [
   {
     name: 'Bulbasaur', 
     height: 0.7, 
@@ -13,11 +14,22 @@ var pokemons = [
     name: 'Squirtle',
     height: 0.9, 
     types: ['water']
-  }
-];
+  }];
 
-pokemons.forEach(function(pokemon){
-document.write(pokemon.name + " ")
-document.write(pokemon.height + " ")
-document.write(pokemon.types + " " + "<br>")
-});
+  function add (pokemon) {
+repository.push(pokemon);
+  }
+  function getAll() {
+    return repository;
+  }
+return {
+  add: add,
+  getAll: getAll
+};
+})();
+
+  
+pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.add(pokemon);
+ 
+  });
