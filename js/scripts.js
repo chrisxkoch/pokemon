@@ -63,10 +63,86 @@ var pokemonRepository = (function() { //start of IIFE
 
     function showDetails(item) {
         pokemonRepository.loadDetails(item).then(function() {
+            showModal(item);
             console.log(item);
         });
 
     }
+
+    // create Modal-Content
+    function showModal(item) {
+        var $modalContainer = document.querySelector('#modal-container');
+
+        // clear existing Modal-Content
+        $modalContainer.innerHTML = '';
+
+        // create div element in DOM
+        var modal = document.createElement('div');
+        // add class to div DOM element
+        modal.classList.add('modal');
+        // create element to name in Modal-Content
+        var nameElement = document.createElement('h1');
+        nameElement.innerText = item.name;
+        // create img in Modal-Content
+        var imageElement = document.createElement('img');
+        imageElement.classList.add('modal-img');
+        imageElement.setAttribute('src', item.imageUrl)
+
+        // create element for height
+        var heightElement = document.createElement('p');
+        heightElement.innerText = 'height : ' + item.height;
+        // create element for weight
+        var typesElement = document.createElement('p');
+        typesElement.innerText = 'weight : ' + item.weight;
+
+        // close Button in Modal-Content
+        var closeButtonElement = document.createElement('button');
+        closeButtonElement.classList.add('modal-close');
+        closeButtonElement.innerText = 'Close';
+        closeButtonElement.addEventListener('click', hideModal);
+
+        // append Modal_Content to Webpage
+        modal.appendChild(closeButtonElement);
+        modal.appendChild(nameElement);
+        modal.appendChild(imageElement);
+        modal.appendChild(heightElement);
+        modal.appendChild(typesElement);
+        $modalContainer.appendChild(modal);
+
+        // adds class to show the Modal
+        $modalContainer.classList.add('is-visible');
+
+    }
+
+    // hides Modal when you click on close button
+    function hideModal() {
+        var $modalContainer = document.querySelector('#modal-container');
+        $modalContainer.classList.remove('is-visible');
+    }
+
+    // hides Modal when clicked on ESC on keyboard
+
+    window.addEventListener('keydown', (e) => {
+        var $modalContainer = document.querySelector('#modal-container');
+
+        if (
+            e.key === 'Escape' && $modalContainer.classList.contains('is-visible')
+        ) {
+            hideModal();
+        }
+    });
+
+    // hides Modal if clicked outside of it
+    var $modalContainer = document.querySelector('.pokemon-list');
+    $modalContainer.addEventListener('click', (e) => {
+        var target = e.target;
+        if (target === $modalContainer) {
+            hideModal();
+        }
+    });
+
+
+
 
     return {
         loadList: loadList,
@@ -75,6 +151,8 @@ var pokemonRepository = (function() { //start of IIFE
         add: add,
         getAll: getAll,
         loadDetails: loadDetails,
+        showModal: showModal,
+        hideModal: hideModal
     };
 
 })();

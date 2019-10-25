@@ -32,6 +32,18 @@ button {
 	border-bottom: 2px solid rgba(0, 0, 0, 0.5);
 }
 
+#modal-container {
+	display: none;
+}
+
+#modal-container.is-visible {
+	font-family: inherit;
+	background-color: #e0b354;
+	color: #171718;
+	display: block;
+
+}
+
 @media all and (min-width: 500px) and (max-width: 750px) {
 	html,
 	body {
