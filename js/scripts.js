@@ -132,14 +132,15 @@ var pokemonRepository = (function() { //start of IIFE
         }
     });
 
-    // hides Modal if clicked outside of it
+    // hides Modal if clicked outside
     var $modalContainer = document.querySelector('.pokemon-list');
     $modalContainer.addEventListener('click', (e) => {
-        var target = e.target;
-        if (target === $modalContainer) {
-            hideModal();
-        }
+      var target = e.target;
+      if (target === $modalContainer) {
+        hideModal();
+      }
     });
+   
 
 
 
