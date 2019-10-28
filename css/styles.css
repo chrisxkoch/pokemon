@@ -10,7 +10,6 @@
 	display: grid;
 	max-width: 300px;
 	min-width: 200px;
-	opacity: 50%;
 }
 
 .pokemon-list__item {
@@ -20,7 +19,7 @@
 	max-width: 300px;
 	min-width: 200px;
 	padding: 5px;
-	opacity: 50%;
+
 }
 
 button {
@@ -38,33 +37,30 @@ button {
 	display: none;
 	position: absolute;
 	text-align: center;
-	width: 80%;
-	height: 80%;
-	opacity: 0.5;
+	width: 100%;
+	height: 100%;
 }
 
 #modal-container.is-visible {
 	font-family: inherit;
-	background-color: #e0b354;
 	color: #171718;
-	width: 80%;
-    height: 80%;
     margin:0 auto;
     display:table;
     position: absolute;
-    left: 0;
-    right:0;
-    top: 50%; 
     border:3px solid gray;
-    -webkit-transform:translateY(-50%);
-    -moz-transform:translateY(-50%);
-    -ms-transform:translateY(-50%);
-    -o-transform:translateY(-50%);
-    transform:translateY(-50%);
-	opacity: 0.5;
-	
+	background-color: rgb(128, 128, 128, 0.4);
+	text-align: center;
 }
 
+.modal {
+	background-color: #e0b354;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 300px;
+	height: 300px;
+	transform: translate(-50%, -50%);
+}
 @media all and (min-width: 500px) and (max-width: 750px) {
 	html,
 	body {
