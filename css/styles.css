@@ -46,7 +46,7 @@ button {
 	color: #171718;
     margin:0 auto;
     display:table;
-    position: absolute;
+    position: fixed;
     border:3px solid gray;
 	background-color: rgb(128, 128, 128, 0.4);
 	text-align: center;
